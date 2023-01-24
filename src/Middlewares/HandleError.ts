@@ -1,13 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
+import HttpErrorMessage from '../Utils/httpErrorMessage';
 
 export default class HandleError {
   public static handle(
     error: Error,
     _req: Request,
     res: Response,
-    next: NextFunction,
+    _next: NextFunction,
   ) {
-    res.status(500).json({ message: error.message });
-    next();
+    const { status, message } = error as HttpErrorMessage;
+    res.status(status || 500).json({ message });
   }
 }
