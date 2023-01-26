@@ -1,4 +1,3 @@
-// import IMotorcycle, { Categories } from '../Interfaces/IMotorcycle';
 import IMotorcycle, { Categories } from '../Interfaces/IMotorcycle';
 import Vehicle from './Vehicle';
 
