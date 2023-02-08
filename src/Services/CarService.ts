@@ -4,7 +4,7 @@ import CarsODM from '../Models/CarsODM';
 import HttpErrorMessage from '../Utils/httpErrorMessage';
 
 const HTTP_422_ERROR_MESSAGE = 'Invalid mongo id';
-const HTTP_404_ERROR_MESSAGE = 'Motorcycle not found';
+const HTTP_404_ERROR_MESSAGE = 'Car not found';
 
 export default class CarService {
   private createCarDomain(car: ICar): Car | null {
