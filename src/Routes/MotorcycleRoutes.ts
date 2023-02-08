@@ -12,4 +12,9 @@ motorcycleRouter
 motorcycleRouter
   .get('/motorcycle/:id', (req, res, next) => new MotorcycleController(req, res, next).findById());
 
+motorcycleRouter.put(
+  '/motorcycles/:id',
+  (req, res, next) => new MotorcycleController(req, res, next).updateById(),
+);
+
 export default motorcycleRouter;

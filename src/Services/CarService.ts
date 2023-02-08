@@ -1,14 +1,11 @@
-import Cars from '../Domains/Car';
+import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
 import CarsODM from '../Models/CarsODM';
 import HttpErrorMessage from '../Utils/httpErrorMessage';
 
 export default class CarService {
-  private createCarDomain(car: ICar | null): Cars | null {
-    if (car) {
-      return new Cars(car);
-    }
-    return null;
+  private createCarDomain(car: ICar): Car | null {
+    return new Car(car);
   }
 
   public async register(car: ICar) {

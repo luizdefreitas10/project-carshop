@@ -31,4 +31,12 @@ export default class MotorcycleService {
     if (!motorcycleId) throw new HttpErrorMessage(404, 'Motorcycle not found');
     return this.createMotorcycleDomain(motorcycleId);
   }
+
+  public async updateById(id: string, motorcycle: IMotorcycle) {
+    const motorcycleODM = new MotorcycleODM();  
+    if (id.length !== 24) throw new HttpErrorMessage(422, 'Invalid mongo id');
+    const motorcycleId = await motorcycleODM.update(id, motorcycle);
+    if (!motorcycleId) throw new HttpErrorMessage(404, 'Motorcycle not found');
+    return this.createMotorcycleDomain(motorcycleId);
+  }
 }
