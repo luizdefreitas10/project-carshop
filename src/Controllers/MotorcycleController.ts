@@ -40,8 +40,9 @@ export default class MotorcycleController {
   public async findById() {
     try {
       const { id } = this.req.params;
-      const motorcycleId = await this.service.findBydId(id);
-      return motorcycleId;
+      const motorcycleId = await this.service.findById(id);
+      if (!motorcycleId) return this.res.status(404).json({ message: 'Motorcycle not found' });
+      return this.res.status(200).json(motorcycleId);
     } catch (error) {
       this.next(error);
     }

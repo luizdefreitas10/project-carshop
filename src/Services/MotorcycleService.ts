@@ -27,7 +27,7 @@ export default class MotorcycleService {
     return listOfMotorcycles;
   }
 
-  public async findBydId(id: string) {
+  public async findById(id: string) {
     const motorcycleODM = new MotorcycleODM();
     if (id.length !== 24) throw new HttpErrorMessage(422, HTTP_422_ERROR_MESSAGE); 
     const motorcycleId = await motorcycleODM.findById(id);

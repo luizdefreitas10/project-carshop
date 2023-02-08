@@ -33,7 +33,7 @@ describe('Testando as camadas associadas a motos', function () {
     sinon.stub(Model, 'findOne').resolves(motorcycleById);
 
     const service = new MotorcycleService();
-    const response = await service.findBydId(id);
+    const response = await service.findById(id);
 
     expect(response).to.be.deep.equal(motorcycleById);
   });
@@ -45,7 +45,7 @@ describe('Testando as camadas associadas a motos', function () {
 
     try {
       const service = new MotorcycleService();
-      await service.findBydId(id);
+      await service.findById(id);
     } catch (e) {
       expect((e as Error).message).to.be.equal(INVALID_ID);
     }
@@ -58,7 +58,7 @@ describe('Testando as camadas associadas a motos', function () {
 
     try {
       const service = new MotorcycleService();
-      await service.findBydId(id);
+      await service.findById(id);
     } catch (e) {
       expect((e as Error).message).to.be.equal(MOTOR_NOT_FOUND);
     }
