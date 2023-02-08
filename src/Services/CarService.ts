@@ -39,12 +39,4 @@ export default class CarService {
     if (!carResponse) throw new HttpErrorMessage(404, HTTP_404_ERROR_MESSAGE);
     return this.createCarDomain(carResponse);
   }
-
-  public async delete(id: string) {
-    const carModel = new CarsODM();
-    if (id.length !== 24) throw new HttpErrorMessage(422, HTTP_422_ERROR_MESSAGE);
-    const carResponse = await carModel.delete(id);
-    if (!carResponse) throw new HttpErrorMessage(404, HTTP_404_ERROR_MESSAGE);
-    return null;
-  }
 }

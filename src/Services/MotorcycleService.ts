@@ -42,12 +42,4 @@ export default class MotorcycleService {
     if (!motorcycleId) throw new HttpErrorMessage(404, HTTP_404_ERROR_MESSAGE);
     return this.createMotorcycleDomain(motorcycleId);
   }
-
-  public async delete(id: string) {
-    const motorcycleODM = new MotorcycleODM();
-    if (id.length !== 24) throw new HttpErrorMessage(422, HTTP_422_ERROR_MESSAGE);
-    const response = await motorcycleODM.delete(id);
-    if (!response) throw new HttpErrorMessage(404, HTTP_404_ERROR_MESSAGE);
-    return null;
-  }
 }

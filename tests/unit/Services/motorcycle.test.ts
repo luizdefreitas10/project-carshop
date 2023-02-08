@@ -100,43 +100,6 @@ describe('Testando as camadas associadas a motos', function () {
     }
   });
 
-  it('Verifica se deleta uma moto por id', async function () {
-    const id = '63c58cf07f367d16a9b6463d';
-
-    sinon.stub(Model, 'findByIdAndDelete').resolves(motorcycleById);
-
-    const service = new MotorcycleService();
-    const response = await service.delete(id);
-    
-    expect(response).to.be.deep.equal(motorcycleById);
-  });
-
-  it('Verifica se retorna 422 ao tentar deletar uma moto por id invalido', async function () {
-    const id = '63c58cf07f3b663d';
-
-    sinon.stub(Model, 'findOneAndDelete').resolves({});
-
-    try {
-      const service = new MotorcycleService();
-      await service.delete(id);
-    } catch (e) {
-      expect((e as Error).message).to.be.equal(INVALID_ID);
-    }
-  });
-
-  it('Verifica se nao deleta uma moto ao passar um id inexistente', async function () {
-    const id = '63c58cf07f367d16a9b6463d';
-
-    sinon.stub(Model, 'findByIdAndDelete').resolves(null);
-
-    try {
-      const service = new MotorcycleService();
-      await service.delete(id);  
-    } catch (e) {
-      expect((e as Error).message).to.be.deep.equal(MOTOR_NOT_FOUND);
-    }
-  });
-
   afterEach(function () {
     sinon.restore();
   });

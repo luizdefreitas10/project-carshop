@@ -17,7 +17,4 @@ motorcycleRouter.get(MOTORCYCLE_ID_ROUTE, (req, res, next) =>
 motorcycleRouter.put(MOTORCYCLE_ID_ROUTE, (req, res, next) =>
   new MotorcycleController(req, res, next).updateById());
 
-motorcycleRouter.delete(MOTORCYCLE_ID_ROUTE, (req, res, next) =>
-  new MotorcycleController(req, res, next).delete());
-
 export default motorcycleRouter;

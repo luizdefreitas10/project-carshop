@@ -17,7 +17,4 @@ carRouter.get('/cars', (req, res, next) =>
 carRouter.put(CARS_ID_ROUTE, (req, res, next) =>
   new CarController(req, res, next).updateById());
 
-carRouter.delete(CARS_ID_ROUTE, (req, res, next) =>
-  new CarController(req, res, next).delete());
-
 export default carRouter;
